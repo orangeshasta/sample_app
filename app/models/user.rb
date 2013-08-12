@@ -29,6 +29,11 @@ class User < ActiveRecord::Base
 
 	after_validation { self.errors.messages.delete(:password_digest) }
 
+  def feed
+    #this is preliminary
+    Micropost.where("user_id = ?", id)
+  end
+
   private
 
     def create_remember_token

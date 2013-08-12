@@ -6,7 +6,7 @@ describe UsersController do
 
     it "should not be able to delete himself" do
       sign_in admin
-      expect { delete :destroy, :id => admin.id }.should_not change(User, :count)
+      expect { delete :destroy, :id => admin.id }.to_not change(User, :count)
     end
   end
 end
